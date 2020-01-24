@@ -12,7 +12,7 @@ namespace Auction.WebApp.UnitTests.Domain
     {
         private CommandHandler _subject;
         private Guid _aggregateId;
-        private static AuctionDetails _auction = AuctionDetails.Create(DateTime.Now.AddDays(7), 10.00m, "Guitar", "Dan");
+        private static AuctionDetails _auction = AuctionDetails.Create(DateTime.Now.AddDays(7), 10.00m, "Guitar");
         private static CreateAuction _createAuction = CreateAuction.Create(_auction);
 
         public WhenHandlingStartAuction()
@@ -31,7 +31,6 @@ namespace Auction.WebApp.UnitTests.Domain
             Assert.True(newEvent is AuctionCreated);
             Assert.Equal(_auction.EndTime, (newEvent as AuctionCreated).Auction.EndTime);
             Assert.Equal(_auction.StartingPrice, (newEvent as AuctionCreated).Auction.StartingPrice);
-            Assert.Equal(_auction.Username, (newEvent as AuctionCreated).Auction.Username);
         }
 
         [Fact]

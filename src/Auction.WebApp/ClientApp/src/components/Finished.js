@@ -22,6 +22,7 @@ export class Finished extends Component {
           <tr>
             <th>Description</th>
             <th>Winning Bid</th>
+            <th>Ended</th>
           </tr>
         </thead>
         <tbody>
@@ -29,6 +30,7 @@ export class Finished extends Component {
             <tr key={auction.id}>
               <td>{auction.description}</td>
               <td>{auction.highestBid === 0.0 ? 'No bids' : auction.highestBid}</td>
+              <td>{new Date(auction.endTime).toLocaleString()}</td>
             </tr>
           )}
         </tbody>

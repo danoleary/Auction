@@ -53,6 +53,7 @@ export class Home extends Component {
             <th>Description</th>
             <th>Starting Bid</th>
             <th>Highest Bid</th>
+            <th>Ending</th>
             <th></th>
           </tr>
         </thead>
@@ -62,6 +63,7 @@ export class Home extends Component {
               <td>{auction.description}</td>
               <td>{auction.startingPrice}</td>
               <td>{auction.highestBid}</td>
+              <td>{new Date(auction.endTime).toLocaleString()}</td>
               <td><Link to={{
                 pathname: "/bid",
                 state: {id: auction.id}
